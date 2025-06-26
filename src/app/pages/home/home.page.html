@@ -1,16 +1,24 @@
 <app-header></app-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <h1>Page Loaded</h1> 
+  <ion-item>
+    <ion-label>City:</ion-label>
+    <ion-input [(ngModel)]="city" placeholder="Enter city name"></ion-input>
+    <ion-button (click)="fetchWeather()">Search</ion-button>
+  </ion-item>
 
-  <div id="container">
-    
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div *ngIf="weatherData">
+    <h2>{{ weatherData.location.name }}, {{ weatherData.location.country }}</h2>
+    <p>Temperature: {{ weatherData.current.temp_c }}°C</p>
+    <p>Condition: {{ weatherData.current.condition.text }}</p>
+    <img [src]="'https:' + weatherData.current.condition.icon" />
+    <p>Humidity: {{ weatherData.current.humidity }}%</p>
+    <p>Wind: {{ weatherData.current.wind_kph }} kph</p>
   </div>
 </ion-content>
+
+
+
+
 <app-footer></app-footer>
