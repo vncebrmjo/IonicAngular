@@ -18,7 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class HomePage implements OnInit {
   weatherData?: WeatherResponse;
-  city = 'Makati City';
+  city = '';
 
 
   constructor(private weatherService: WeatherService) {}
@@ -35,4 +35,8 @@ export class HomePage implements OnInit {
 
     })
   }
+
+  onSearchCity() {
+  this.fetchWeather();
+}
 }

@@ -1,11 +1,9 @@
 <app-header></app-header>
 
 <ion-content class="ion-padding">
-  <h1>Page Loaded</h1> 
   <ion-item>
-    <ion-label>City:</ion-label>
-    <ion-input [(ngModel)]="city" placeholder="Enter city name"></ion-input>
-    <ion-button (click)="fetchWeather()">Search</ion-button>
+    <ion-label position="floating">Enter City</ion-label>
+    <ion-input [(ngModel)]="city" (ionInput)="onSearchCity()" ></ion-input>
   </ion-item>
 
   <div *ngIf="weatherData">
